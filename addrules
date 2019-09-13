@@ -15,6 +15,7 @@ iptables -A INPUT -s 112.85.42.227/32 -p tcp -j DROP
 iptables -A INPUT -s 114.216.206.39/32 -p tcp -j DROP
 iptables -A INPUT -s 116.196.116.9/32 -p tcp -j DROP
 iptables -A INPUT -s 117.223.189.14/32 -p tcp -j DROP
+iptables -A INPUT -s 118.24.38.12/32 -p tcp -j DROP
 iptables -A INPUT -s 118.163.149.163/32 -p tcp -j DROP
 iptables -A INPUT -s 120.86.70.92/32 -p tcp -j DROP
 iptables -A INPUT -s 122.195.200.148/32  -p TCP -j DROP
@@ -102,6 +103,7 @@ iptables -A INPUT -s 222.186.42.241/32 -p tcp -j DROP
 iptables -A INPUT -s 222.186.52.89/32 -p tcp -j DROP
 iptables -A INPUT -s 222.186.52.124/32 -p tcp -j DROP
 iptables -A INPUT -s 222.186.173.119/32 -p tcp -j DROP
+iptables -A INPUT -s 222.186.180.21/32 -p tcp -j DROP
 iptables -A INPUT -s 222.242.104.188/32 -p tcp -j DROP
 iptables -A INPUT -s 2.32.86.50/32 -p tcp -j DROP
 iptables -A INPUT -s 20.188.3.178/32 -p tcp -j DROP
