@@ -1,6 +1,16 @@
 # iptables
 IPtables rules for ubuntu iptable chain firewall
 
+Add rules to file with:
+sed -i '/^iptables -A INPUT -s 51.38.33.178/ i iptables -A INPUT -s 40.78.100.11/32  -p TCP -j DROP' addrules
+
+or edit addrules directly
+
+or run the banip.sh:
+./banip.sh
+
+give ip address to ban. done
+
 This script begins by flushing all known chains and remove all add chains.
 iptables -F
 iptables -X
