@@ -210,3 +210,4 @@ iptables -A INPUT -s 92.118.160.5/32  -p TCP -j DROP
 iptables -A INPUT -s 93.114.77.11/32  -p TCP -j DROP
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -L -n
