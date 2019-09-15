@@ -8,7 +8,7 @@ then
     iptables -L -n |grep $ip
     # code if found
 else
-    echo does not exist adding to addrules
+    echo does not exist, it needs to be added to addrules
     echo use banip.sh to ban ip from accessing system
 #    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ipaddr/32 -p tcp -j DROP" addrules
 #    ./addrules
