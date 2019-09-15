@@ -1,0 +1,10 @@
+#!/bin/bash
+read -p 'IP to look for: ' ip
+if grep -Fq $ip  addrules
+then
+    echo exist
+    # code if found
+else
+    echo does not exist
+    # code if not found
+fi

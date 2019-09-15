@@ -1,12 +1,20 @@
 #!/bin/bash
 read -p 'IP to look for: ' ip
 echo
-echo
-echo ip is $ip
-echo
-echo
-echo
-iptables -L -n |grep $ip
+echo var is $ip
+if grep -Fq $ip  addrules
+then
+    echo Ip already exist in addrules
+    iptables -L -n |grep $ip
+    # code if found
+else
+    echo does not exist adding to addrules
+    echo use banip.sh to ban ip from accessing system
+#    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ipaddr/32 -p tcp -j DROP" addrules
+#    ./addrules
+#    iptables -L -n |grep $ip 
+    # code if not found
+fi
 echo
 echo done
 
