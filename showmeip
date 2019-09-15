@@ -1,0 +1,12 @@
+#!/bin/bash
+read -p 'IP to look for: ' ip
+echo
+echo
+echo ip is $ip
+echo
+echo
+echo
+iptables -L -n |grep $ip
+echo
+echo done
+
