@@ -48,19 +48,18 @@ the same with a packet on port 80 wich is the web server.
 
 logging analysed multiple times a day. Any computer trying to access this computer without permission is added to the INPUT:DROP list.
 
-…or create a new repository on the command line
- echo "# iptables" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin git@github.com:jtran1999/iptables.git
-git push -u origin master
-…or push an existing repository from the command line
- git remote add origin git@github.com:jtran1999/iptables.git
-git push -u origin master
-…or import code from another repository
-You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+	-…or create a new repository on the command line
+	* echo "# iptables" >> README.md
+	* git init
+	* git add README.md
+	* git commit -m "first commit"
+	* git remote add origin git@github.com:jtran1999/iptables.git
+	* git push -u origin master
+	  …or push an existing repository from the command line
+	* git remote add origin git@github.com:jtran1999/iptables.git
+	* git push -u origin master
+	  …or import code from another repository
+	* You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
 
-Import code
 
 
