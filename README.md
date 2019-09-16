@@ -1,7 +1,9 @@
 # iptables
-IPtables rules for ubuntu iptable chain firewall
+IPtables rules for ubuntu 18.04.3 lts iptable Linux firewall
 
 - Updated 9/15/2019
+	* Should work with any Linux distro that uses iptables
+	* added a script to cat addrules and numerically sort the IPs and outputs to sorted
 	* added checking for IP that already exist in database
 	* showmeip script just checks for IPs and reports results or suggest what to do.
 	* added banip.sh has conditional checking and will add IP if it doesn't exist
