@@ -40,6 +40,7 @@ iptables -A INPUT -s 118.24.38.12/32 -p tcp -j DROP
 iptables -A INPUT -s 119.29.98.253/32 -p tcp -j DROP
 iptables -A INPUT -s 120.132.112.16/32 -p tcp -j DROP
 iptables -A INPUT -s 120.86.70.92/32 -p tcp -j DROP
+iptables -A INPUT -s 121.14.70.29/32 -p tcp -j DROP
 iptables -A INPUT -s 121.204.143.153/32 -p tcp -j DROP
 iptables -A INPUT -s 121.57.210.43/32 -p tcp -j DROP
 iptables -A INPUT -s 122.195.200.148/32  -p TCP -j DROP
@@ -97,6 +98,7 @@ iptables -A INPUT -s 171.34.114.80/32  -p TCP -j DROP
 iptables -A INPUT -s 175.193.157.172/32  -p TCP -j DROP
 iptables -A INPUT -s 176.100.102.208/32  -p TCP -j DROP
 iptables -A INPUT -s 176.214.81.217/32  -p TCP -j DROP
+iptables -A INPUT -s 177.137.205.150/32 -p tcp -j DROP
 iptables -A INPUT -s 177.68.148.10/32 -p tcp -j DROP
 iptables -A INPUT -s 177.8.244.38/32 -p tcp -j DROP
 iptables -A INPUT -s 178.128.108.22/32 -p tcp -j DROP
@@ -130,10 +132,12 @@ iptables -A INPUT -s 194.228.3.191/32 -p tcp -j DROP
 iptables -A INPUT -s 194.61.26.34/32 -p tcp -j DROP
 iptables -A INPUT -s 195.218.144.234/32 -p tcp -j DROP
 iptables -A INPUT -s 198.23.133.93/32 -p tcp -j DROP
+iptables -A INPUT -s 198.23.189.18/32 -p tcp -j DROP
 iptables -A INPUT -s 201.48.206.146/32 -p tcp -j DROP
 iptables -A INPUT -s 20.188.3.178/32 -p tcp -j DROP
 iptables -A INPUT -s 202.119.81.229/32 -p tcp -j DROP
 iptables -A INPUT -s 202.151.30.141/32 -p tcp -j DROP
+iptables -A INPUT -s 202.51.74.189/32 -p tcp -j DROP
 iptables -A INPUT -s 202.75.62.141/32 -p tcp -j DROP
 iptables -A INPUT -s 202.84.45.250/32 -p tcp -j DROP
 iptables -A INPUT -s 202.88.237.110/32 -p tcp -j DROP
@@ -214,6 +218,7 @@ iptables -A INPUT -s 37.59.107.100/32 -p tcp -j DROP
 iptables -A INPUT -s 39.115.189.208/32 -p tcp -j DROP
 iptables -A INPUT -s 40.78.100.11/32  -p TCP -j DROP
 iptables -A INPUT -s 40.89.159.174/32 -p tcp -j DROP
+iptables -A INPUT -s 4.16.43.2/32 -p tcp -j DROP
 iptables -A INPUT -s 45.119.212.105/32 -p tcp -j DROP
 iptables -A INPUT -s 45.55.188.133/32 -p tcp -j DROP
 iptables -A INPUT -s 46.101.142.99/32 -p tcp -j DROP
