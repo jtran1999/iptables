@@ -1,15 +1,28 @@
 # iptables
 IPtables rules for ubuntu iptable chain firewall
 
+- Updated 9/15/2019
+	* added checking for IP that already exist in database
+	* showmeip script just checks for IPs and reports results or suggest what to do.
+	* added banip.sh has conditional checking and will add IP if it doesn't exist
+	* add a script to generate new rules from a sorted file of IP addresses
+	* first sort cat addrules |sort > sorted, then run create-sorted-addrules.sh to generate new news with sorted list of IP numbers.
+
+- Project Begins
+	* I want to create a script that will create iptables(firewall) rules that will block any IP addresses that scan my computer and tries to log in without permission.
+	* all of the default rules will be created by running a script called addrules.
 Add rules to file with:
+	* Follow (tailf) /var/log/auth/log to see what IPs are trying to access my system via sshd without my permission.
+	* To add the IPs to the file addrules to generate the firewall tules run the following command.
+
 sed -i '/^iptables -A INPUT -s 51.38.33.178/ i iptables -A INPUT -s 40.78.100.11/32  -p TCP -j DROP' addrules
 
-or edit addrules directly
+	* or edit addrules directly
 
-or run the banip.sh:
-./banip.sh
+	* or run the banip.sh:
+	  ./banip.sh
 
-give ip address to ban. done
+	* give ip address to ban. done
 
 This script begins by flushing all known chains and remove all add chains.
 iptables -F
