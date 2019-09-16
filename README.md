@@ -1,6 +1,11 @@
 # iptables
 IPtables rules for ubuntu 18.04.3 lts iptable Linux firewall
 
+- Updated 9/16/2019
+	* Order of operation: ./ip-sort.sh, ./create-sorted-addrules.sh, then for now manually cat newrules >addrules, and finally ./addrules to apply new rules.
+	* copying newrules to addrules will be updated once verified to be robust
+	* Sorting is now fulling automated. No editing required to clean up sorted file.
+
 - Updated 9/15/2019
 	* Should work with any Linux distro that uses iptables
 	* added a script to cat addrules and numerically sort the IPs and outputs to sorted
