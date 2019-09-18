@@ -6,6 +6,10 @@ if grep -Fq $ip  addrules
 then
     echo IP already exist in addrules
     iptables -L -n |grep $ip
+    echo
+    echo
+    echo There are currently this many rule in iptables
+    iptables -L -n |wc -l
     # code if found
 else
     echo Does not exist, IP addres needs to be added to addrules
@@ -13,6 +17,10 @@ else
 #    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ipaddr/32 -p tcp -j DROP" addrules
 #    ./addrules
 #    iptables -L -n |grep $ip 
+    echo
+    echo
+    echo There are currently this many rule in iptables
+    iptables -L -n |wc -l
     # code if not found
 fi
 echo

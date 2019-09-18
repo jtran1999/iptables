@@ -9,6 +9,10 @@ read -p 'IP to look for: ' ip
 	    echo
 	    echo
 	    iptables -L -n |grep $ip
+	    echo
+	    echo
+	    echo There are currently this many rules in iptables
+	    iptables -L -n |wc -l
 	    # code if found
 	else
 	    echo Does not exist, it needs to be added to addrules
@@ -20,6 +24,10 @@ read -p 'IP to look for: ' ip
 	    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ip/32 -p tcp -j DROP" addrules
 	    ./addrules
 	    iptables -L -n |grep $ip 
+	    echo
+	    echo
+	    echo There are currently this many rules in iptables
+	    iptables -L -n |wc -l
 	    # code if not found
 fi
 echo
