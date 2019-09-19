@@ -11,7 +11,6 @@ IPtables rules for ubuntu 18.04.3 lts iptable Linux firewall
 	* sudo ./ip-sort.sh will sort the all of the active IP address into a new file call sorted
 	* sudo ./create-sorted-addrules.sh will generate a new configuration file for iptables firewall using the file sorted as input. It then will update the addrules file with new command to flush, delete all rules, and generate new firewall rules in a sorted human readable manner.
 	* Finally to activate the new firewall rules simple run sudo ./addrules to restart the firewall with the new rules.
-
 	* Keep track of SRC IPs by following the syslog with: tailf /var/log/syslog | cut -d "=" -f 5
 	* Keep track of who trying to gain access to sshd with: tailf /var/log/auth.log
 
