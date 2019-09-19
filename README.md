@@ -10,7 +10,7 @@ IPtables rules for ubuntu 18.04.3 lts iptable Linux firewall
 	* sudo ./banip.sh enter;paste UP address hit enter; will conditionally check to see if IP address already exist, if it does then stop and display the information on screem, if it doesn't already exist the script will added the IP address to the iptables firewall and then list all of the rules, and well and list the new rule created, and how many rules there are in total.
 	* sudo ./ip-sort.sh will sort the all of the active IP address into a new file call sorted
 	* sudo ./create-sorted-addrules.sh will generate a new configuration file for iptables firewall using the file sorted as input. It then will update the addrules file with new command to flust, delete all rules, and generate new firewall rules in a sorted human readable manner.
-	* Finally to acitavte the new firewall rules simple run sudo ./addrules to restart the firewall with the new rules.
+	* Finally to activate the new firewall rules simple run sudo ./addrules to restart the firewall with the new rules.
 
 - Updated 9/16/2019
 	* Order of operation: ./ip-sort.sh, ./create-sorted-addrules.sh, then for now manually cat newrules >addrules, and finally ./addrules to apply new rules.
