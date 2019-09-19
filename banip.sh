@@ -11,8 +11,8 @@ read -p 'IP to look for: ' ip
 	    iptables -L -n |grep $ip
 	    echo
 	    echo
-	    echo There are currently this many rules in iptables
-	    iptables -L -n |wc -l
+	    num=`iptables -L -n |wc -l`
+	    echo There are this $num of rules in iptables
 	    # code if found
 	else
 	    echo Does not exist, it needs to be added to addrules
@@ -23,11 +23,12 @@ read -p 'IP to look for: ' ip
 	    echo
 	    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ip/32 -p tcp -j DROP" addrules
 	    ./addrules
-	    iptables -L -n |grep $ip 
+	    rule=`iptables -L -n |grep $ip`
+	    echo The new rule is now active as $rule
 	    echo
 	    echo
-	    echo There are currently this many rules in iptables
-	    iptables -L -n |wc -l
+	    num=`iptables -L -n |wc -l`
+	    echo There are this $num of rules in iptables
 	    # code if not found
 fi
 echo
