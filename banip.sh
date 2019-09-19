@@ -12,7 +12,7 @@ read -p 'IP to look for: ' ip
 	    echo
 	    echo
 	    num=`iptables -L -n |wc -l`
-	    echo There are this $num of rules in iptables
+	    echo There are $num of rules in iptables
 	    # code if found
 	else
 	    echo Does not exist, it needs to be added to addrules
@@ -28,7 +28,7 @@ read -p 'IP to look for: ' ip
 	    echo
 	    echo
 	    num=`iptables -L -n |wc -l`
-	    echo There are this $num of rules in iptables
+	    echo There are $num of rules in iptables
 	    # code if not found
 fi
 echo
