@@ -7,10 +7,13 @@ IPtables rules for ubuntu 18.04.3 lts iptable Linux firewall
 	* There are now over 441 banned IP addresses of nodes that are trying to gain malicious access
 	* All scripts shoud be run with sudo
 	* sudo ./showmeip enter; paste IP address hit Enter; the script will check if the IP is currently a rule or not, and suggest what to do next.
-	* sudo ./banip.sh enter;paste UP address hit enter; will conditionally check to see if IP address already exist, if it does then stop and display the information on screem, if it doesn't already exist the script will added the IP address to the iptables firewall and then list all of the rules, and well and list the new rule created, and how many rules there are in total.
+	* sudo ./banip.sh enter;paste UP address hit enter; will conditionally check to see if IP address already exist, if it does then stop and display the information on screem. If it doesn't already exist the script will add the IP address to the iptables firewall and then list all of the rules, as well and list the new rule created. It wil also show how many rules there are in total.
 	* sudo ./ip-sort.sh will sort the all of the active IP address into a new file call sorted
-	* sudo ./create-sorted-addrules.sh will generate a new configuration file for iptables firewall using the file sorted as input. It then will update the addrules file with new command to flust, delete all rules, and generate new firewall rules in a sorted human readable manner.
+	* sudo ./create-sorted-addrules.sh will generate a new configuration file for iptables firewall using the file sorted as input. It then will update the addrules file with new command to flush, delete all rules, and generate new firewall rules in a sorted human readable manner.
 	* Finally to activate the new firewall rules simple run sudo ./addrules to restart the firewall with the new rules.
+
+	* Keep track of SRC IPs by following the syslog with: tailf /var/log/syslog | cut -d "=" -f 5
+	* Keep track of who trying to gain access to sshd with: tailf /var/log/auth.log
 
 - Updated 9/16/2019
 	* Order of operation: ./ip-sort.sh, ./create-sorted-addrules.sh, then for now manually cat newrules >addrules, and finally ./addrules to apply new rules.
