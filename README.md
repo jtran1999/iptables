@@ -1,6 +1,11 @@
 # iptables
 IPtables rules for ubuntu 18.04.3 lts iptable Linux firewall
 
+- Updated 9/18/2019
+	* Made descriptions of outpusts much more informative. 
+	* Outputs from showmeip and banip are now more descriptive and informative for human radability
+	* There are now over 400 banned IP addresses of nodes that are trying to gain malicious access
+
 - Updated 9/16/2019
 	* Order of operation: ./ip-sort.sh, ./create-sorted-addrules.sh, then for now manually cat newrules >addrules, and finally ./addrules to apply new rules.
 	* copying newrules to addrules will be updated once verified to be robust
