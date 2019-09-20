@@ -1,0 +1,4 @@
+#!/bin/bash
+var=`cat addrules|wc -l`
+var1=5
+echo $((var-var1))

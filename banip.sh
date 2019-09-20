@@ -11,8 +11,11 @@ read -p 'IP to look for: ' ip
 	    iptables -L -n |grep $ip
 	    echo
 	    echo
-	    num=`iptables -L -n |wc -l`
-	    echo There are $num of rules in iptables
+#	    num=`iptables -L -n |wc -l`
+#	    echo There are $num of rules in iptables
+	    var=`cat addrules|wc -l`
+    	    var1=5
+	    echo There are $((var-var1)) active rules in the firewall
 	    # code if found
 	else
 	    echo Does not exist, it needs to be added to addrules
@@ -28,8 +31,11 @@ read -p 'IP to look for: ' ip
 	    echo The new rule is now active as $rule
 	    echo
 	    echo
-	    num=`iptables -L -n |wc -l`
-	    echo There are $num of rules in iptables
+#	num=`iptables -L -n |wc -l`
+#       echo There are $num of rules in iptables
+	    var=`cat addrules|wc -l`
+            var1=5
+            echo There are $((var-var1)) active rules in the firewall
 	    # code if not found
 fi
 echo
