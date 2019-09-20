@@ -20,10 +20,11 @@ read -p 'IP to look for: ' ip
 	    echo
 	    echo Adding ip to addrules and processing updates
 	    echo
-	    echo
 	    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ip/32 -p tcp -j DROP" addrules
 	    ./addrules
 	    rule=`iptables -L -n |grep $ip`
+	    echo
+	    echo
 	    echo The new rule is now active as $rule
 	    echo
 	    echo

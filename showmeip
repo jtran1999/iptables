@@ -5,8 +5,9 @@ echo Var is $ip
 if grep -Fq $ip addrules
 then
     echo IP already exist in addrules
+    echo
     rule=`iptables -L -n |grep $ip`
-    echo This ip is active in this rule $rule
+    echo This ip is already active in the firewall with this rule $rule
     echo
     echo
     num=`iptables -L -n |wc -l`
@@ -18,7 +19,6 @@ else
 #    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ipaddr/32 -p tcp -j DROP" addrules
 #    ./addrules
 #    iptables -L -n |grep $ip 
-    echo
     echo
     num=`iptables -L -n |wc -l`
     echo There are $num lines in iptables
