@@ -15,5 +15,9 @@ echo Adding command to list new rules at the end of the newrules script
 echo "iptables -L -n" >> newrules
 cat newrules > addrules
 num=`cat addrules |wc -l`
+echo Activatiing new rules
+sleep 1
+./addrules
+echo
 echo There are currently $num lines in iptables
 echo done

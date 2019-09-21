@@ -1,4 +1,6 @@
 #!/bin/bash
+echo Creating sorted
+sleep 1
 cat addrules | sort -n > sorted
 sed -i '1d' sorted
 sed -i "/iptables -F/d" sorted
@@ -10,4 +12,5 @@ sed -i "/iptables -L -n/d" sorted
 cat sorted
 echo IPs sorted in the file sorted
 echo To create new rules with sorted IP file, use create-sorted-addrules.sh to create new addrules
+echo
 echo done

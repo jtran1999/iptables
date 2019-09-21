@@ -7,7 +7,9 @@ then
     echo IP already exist in addrules
     echo
     rule=`iptables -L -n |grep $ip`
-    echo This ip is already active in the firewall with this rule $rule
+    echo This ip is already associated with an active firewall rule
+    echo
+    echo This is what the rule looks like: $rule
     echo
     echo
 #    num=`iptables -L -n |wc -l`
@@ -17,8 +19,8 @@ then
     echo There are $((var-var1)) active rules in the firewall
     # code if found
 else
-    echo Does not exist, IP addres needs to be added to addrules
-    echo Use banip.sh to ban the ip from accessing system
+    echo Does not exist, This IP address should be added to addrules
+    echo Use banip.sh to block the ip from accessing this system
 #    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ipaddr/32 -p tcp -j DROP" addrules
 #    ./addrules
 #    iptables -L -n |grep $ip 
