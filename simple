@@ -1,0 +1,8 @@
+#!bin/bash
+count=`cat count`
+echo $count
+last=`cat last`
+echo $last
+awk 'NR >= '$count' && NR <= '$last'' addrules
+#echo $((last+1)) >last
+#echo $last

@@ -7,13 +7,20 @@ then
     rule=`iptables -L -n |grep $ip`
     echo This ip is already associated with an active firewall rule
     echo This is what the rule looks like: $rule
-    head -15 addrules
+#    head -15 addrules
     echo
 #    num=`iptables -L -n |wc -l`
 #    echo There are $num lines in iptables
     var=`cat addrules|wc -l`
     var1=7
     echo There are $((var-var1)) active rules in the firewall
+    count=`cat count`
+    echo $count
+    last=`cat last`
+    echo $last
+    echo There have been $last rule addidions since the last update:
+    echo Here are the last $last rules
+    awk 'NR >= '$count' && NR <= '$last'' addrules
     # code if found
 else
     echo Does not exist, This IP address should be added to addrules
@@ -27,7 +34,15 @@ else
     var=`cat addrules|wc -l`
     var1=7
     echo There are $((var-var1)) active rules in the firewall
+    count=`cat count`
+    echo $count
+    last=`cat last`
+    echo $last
+    echo There have been $last rule addidions since the last update:
+    echo Here are the last $last rules
+    awk 'NR >= '$count' && NR <= '$last'' addrules
     # code if not found
 fi
+echo
 echo done
 

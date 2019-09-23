@@ -21,21 +21,24 @@ read -p 'IP to look for: ' ip
 	    rule=`iptables -L -n |grep $ip`
 	    echo
 	    echo The new rule is now active as $rule
-#	    head -15 addrules
+	    head -15 addrules
 #	num=`iptables -L -n |wc -l`
 #       echo There are $num of rules in iptables
 	    var=`cat addrules|wc -l`
             var1=7
             echo There are $((var-var1)) active rules in the firewall
+	    echo this many new rules are added since last worting
 	    count=`cat count`
 	    echo $count
-	    last=`cat last`
-	    echo $((last+1)) >last
-	    echo $last
-	    echo These are all the new rules added since last sort
-	    awk 'NR >= '$count' && NR <= '$last'' addrules
-	    last=`cat last`
-	    echo Updated last count to $last
+	    one=1
+	    incre=$((one+count))
+	    echo There have been $count new rules added since the last sorting
+	    newfw=`head -$incre addrules`
+	    echo Here are the rules,
+	    echo $newfw
+	    newcount = $incre
+	    echo `cat $newcount` > count  
+	    echo new count is $count 
 	    # code if not found
 fi
 echo done

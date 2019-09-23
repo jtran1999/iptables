@@ -1,6 +1,5 @@
 #!/bin/bash
 echo Creating sorted
-sleep .5
 cat addrules | sort -n > sorted
 sed -i '1d' sorted
 sed -i "/iptables -F/d" sorted
@@ -14,5 +13,13 @@ echo IPs sorted in the file sorted
 echo To create new rules with sorted IP file, use create-sorted-addrules.sh to create new addrules
 total=`cat sorted |wc -l`
 echo $total iptables rules in total have been sorted
-echo
+echo Reseting last count to 5
+echo 5 > last
+last=`cat last`
+echo This is the new value for last: $last
+count=`cat count`
+echo This is the new value for var count: $count
+echo This is the output with last var resetted to $last
+echo "Test the awk command with awk 'NR >= '$count' && NR <= '$last'' addrules"
+awk 'NR >= '$count' && NR <= '$last'' addrules
 echo done

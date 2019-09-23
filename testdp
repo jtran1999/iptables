@@ -1,0 +1,28 @@
+#!bin/bash
+echo Does not exist, it needs to be added to addrules
+            echo Adding this ip to addrules and processing updates
+#           sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ip/32 -p tcp -j DROP" addrules
+#           ./addrules
+            rule=`iptables -L -n |grep $ip`
+            echo
+            echo The new rule is now active as $rule
+#           head -15 addrules
+#       num=`iptables -L -n |wc -l`
+#       echo There are $num of rules in iptables
+            var=`cat addrules|wc -l`
+            var1=7
+            echo There are $((var-var1)) active rules in the firewall
+            echo This many new rules are added since last update
+            count=`cat count`
+            echo $count
+            one=1
+            incr=$((one+count))
+#           echo There have been $count new rules added since the last sorting
+#           newfw=`head -$incre addrules`
+            echo One new rule added, there are now $incr new rules
+            echo Here are the rules,
+            sed -n '5,$((count+one))p' addrules
+	    echo $((count+one)) >> count1
+	    cat count1
+            # code if not found
+
