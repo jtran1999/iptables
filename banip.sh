@@ -10,7 +10,7 @@ read -p 'IP to look for: ' ip
 #	    num=`iptables -L -n |wc -l`
 #	    echo There are $num of rules in iptables
 	    var=`cat addrules|wc -l`
-    	    var1=5
+    	    var1=7
 	    echo There are $((var-var1)) active rules in the firewall
 	    # code if found
 	else
@@ -25,7 +25,7 @@ read -p 'IP to look for: ' ip
 #	num=`iptables -L -n |wc -l`
 #       echo There are $num of rules in iptables
 	    var=`cat addrules|wc -l`
-            var1=5
+            var1=7
             echo There are $((var-var1)) active rules in the firewall
 	    # code if not found
 fi
