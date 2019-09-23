@@ -14,7 +14,7 @@ echo "iptables -A INPUT -p tcp --dport 80 -j ACCEPT" >> newrules
 echo Adding command to list new rules at the end of the newrules script
 echo "iptables -L -n" >> newrules
 cat newrules > addrules
-num=`cat addrules |wc -l`
+num=`cat sorted |wc -l`
 echo Activatiing new rules
 sleep 1
 ./addrules
