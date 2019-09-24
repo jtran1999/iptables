@@ -20,7 +20,7 @@ then
     echo $last
     echo There have been $last rule addidions since the last update:
     echo Here are the last $last rules
-    awk 'NR >= '$count' && NR <= '$last'' addrules
+    awk 'NR >= '$count' && NR <= '$((last - 1))'' addrules
     # code if found
 else
     echo Does not exist, This IP address should be added to addrules
@@ -38,9 +38,9 @@ else
     echo $count
     last=`cat last`
     echo $last
-    echo There have been $last rule addidions since the last update:
-    echo Here are the last $last rules
-    awk 'NR >= '$count' && NR <= '$last'' addrules
+    echo There have been $((last - 1)) rule addidions since the last update:
+    echo Here are the last $((last - 1)) rules
+    awk 'NR >= '$count' && NR <= '$((last - 1))'' addrules
     # code if not found
 fi
 echo

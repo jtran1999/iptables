@@ -32,6 +32,7 @@ read -p 'IP to look for: ' ip
 	    last=`cat last`
 	    echo $((last+1)) >last
 	    echo $last
+	    echo There are $last new rules added since the last sort!
 	    echo These are all the new rules added since last sort
 	    awk 'NR >= '$count' && NR <= '$last'' addrules
 	    last=`cat last`
