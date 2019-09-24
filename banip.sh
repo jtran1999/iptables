@@ -6,12 +6,19 @@ read -p 'IP to look for: ' ip
 	    echo IP already exist in addrules
 	    iptables -L -n |grep $ip
 	    echo
-	    head -15 addrules
+#	    head -15 addrules
 #	    num=`iptables -L -n |wc -l`
 #	    echo There are $num of rules in iptables
 	    var=`cat addrules|wc -l`
     	    var1=7
-	    echo There are $((var-var1)) active rules in the firewall
+#	    echo There are $((var-var1)) active rules in the firewall
+	    count=`cat count`
+	    echo $count
+	    last=`cat last`
+	    echo $last
+	    echo There are $((last - $count)) new rules added since the last sort!
+	    echo These are all the new rules added since last sort
+	    awk 'NR >= '$count' && NR <= '$last'' addrules
 	    # code if found
 	else
 	    echo Does not exist, it needs to be added to addrules
@@ -32,7 +39,7 @@ read -p 'IP to look for: ' ip
 	    last=`cat last`
 	    echo $((last+1)) >last
 	    echo $last
-	    echo There are $last new rules added since the last sort!
+	    echo There are $((last - $count)) new rules added since the last sort!
 	    echo These are all the new rules added since last sort
 	    awk 'NR >= '$count' && NR <= '$last'' addrules
 	    last=`cat last`
