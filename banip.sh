@@ -27,7 +27,8 @@ if grep -Fq $ip  addrules
 	    awk 'NR >= '$count' && NR <= '$last'' addrules
 	    # code if found
 	else
-	    echo Does not exist, it needs to be added to addrules
+	    echo This is a valid IP address $ip,
+	    echo But it does not exist in the firewall yet, it needs to be added to addrules
 	    echo Adding this ip to addrules and processing updates
 	    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ip/32 -p tcp -j DROP" addrules
 	    ./addrules
@@ -44,11 +45,11 @@ if grep -Fq $ip  addrules
 	    echo $count
 	    last=`cat last`
 	    echo $((last+1)) >last
+	    last = `cat last`
 	    echo $last
 	    echo There are $((last - $count)) new rules added since the last sort!
 	    echo These are all the new rules added since last sort
 	    awk 'NR >= '$count' && NR <= '$last'' addrules
-	    last=`cat last`
 	    echo Updated last count to $last
 	    # code if not found
 fi
