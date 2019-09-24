@@ -11,7 +11,8 @@ fi
 if grep -Fq $ip addrules
 then
     echo IP already exist in addrules
-    rule=`iptables -L -n |grep $ip`
+#    rule=`iptables -L -n |grep $ip`
+    rule=`iptables-save  |grep $ip`
     echo This ip is already associated with an active firewall rule
     echo This is what the rule looks like: $rule
     echo
@@ -19,9 +20,9 @@ then
     var1=7
     echo There are $((var-var1)) active rules in the firewall
     count=`cat count`
-    echo $count
+#    echo $count
     last=`cat last`
-    echo $last
+#    echo $last
     echo There have been $((last - $count)) rule addidions since the last update:
     echo Here are the last $((last - $count)) rules
     awk 'NR >= '$count' && NR <= '$((last - 1))'' addrules
