@@ -1,6 +1,6 @@
 #!/bin/bash
 read -p 'IP to look for: ' ip
-echo Var is $ip
+#echo Var is $ip
 if [[ $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] 
 then
   echo This is a valid ip, $ip
@@ -35,9 +35,9 @@ else
     var1=7
     echo There are $((var-var1)) active rules in the firewall
     count=`cat count`
-    echo $count
+#    echo $count
     last=`cat last`
-    echo $last
+#    echo $last
     echo There have been $((last - $count)) rule addidions since the last update:
     echo Here are the last $((last - $count)) rules
     awk 'NR >= '$count' && NR <= '$((last - 1))'' addrules

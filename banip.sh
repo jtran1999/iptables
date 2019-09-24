@@ -19,7 +19,7 @@ if grep -Fq $ip  addrules
     	    var1=7
 #	    echo There are $((var-var1)) active rules in the firewall
 	    count=`cat count`
-	    echo $count
+#	    echo $count
 	    last=`cat last`
 	    echo $last
 	    echo There are $((last - $count)) new rules added since the last sort!
@@ -33,7 +33,6 @@ if grep -Fq $ip  addrules
 	    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ip/32 -p tcp -j DROP" addrules
 	    ./addrules
 	    rule=`iptables -L -n |grep $ip`
-	    echo
 	    echo The new rule is now active as $rule
 #	    head -15 addrules
 #	num=`iptables -L -n |wc -l`
@@ -42,15 +41,15 @@ if grep -Fq $ip  addrules
             var1=7
             echo There are $((var-var1)) active rules in the firewall
 	    count=`cat count`
-	    echo $count
+#	    echo $count
 	    last=`cat last`
 	    echo $((last+1)) >last
 	    last = `cat last`
-	    echo $last
+#	    echo $last
 	    echo There are $((last - $count)) new rules added since the last sort!
 	    echo These are all the new rules added since last sort
 	    awk 'NR >= '$count' && NR <= '$last'' addrules
-	    echo Updated last count to $last
+#	    echo Updated last count to $last
 	    # code if not found
 fi
 echo done
