@@ -1,7 +1,13 @@
 #!/bin/bash
 read -p 'IP to look for: ' ip
-#	echo var is $ip
-	if grep -Fq $ip  addrules
+if [[ $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
+then
+  echo This is a valid ip, $ip
+else 
+  echo This is not an IP address
+  exit 1
+fi
+if grep -Fq $ip  addrules
 	then
 	    echo IP already exist in addrules
 	    iptables -L -n |grep $ip

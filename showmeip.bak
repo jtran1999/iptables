@@ -1,20 +1,16 @@
 #!/bin/bash
 read -p 'IP to look for: ' ip
 echo Var is $ip
-if [[ $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] 
-then
-  echo This is a valid ip, $ip
-else 
-  echo This is not an IP address
-  exit 1
-fi
 if grep -Fq $ip addrules
 then
     echo IP already exist in addrules
     rule=`iptables -L -n |grep $ip`
     echo This ip is already associated with an active firewall rule
     echo This is what the rule looks like: $rule
+#    head -15 addrules
     echo
+#    num=`iptables -L -n |wc -l`
+#    echo There are $num lines in iptables
     var=`cat addrules|wc -l`
     var1=7
     echo There are $((var-var1)) active rules in the firewall
@@ -27,10 +23,14 @@ then
     awk 'NR >= '$count' && NR <= '$((last - 1))'' addrules
     # code if found
 else
-    echo This is a valid IP address but it does not exist as an active firewall rule yet
-    echo This IP address should be added to addrules
+    echo Does not exist, This IP address should be added to addrules
     echo Use banip.sh to block the ip from accessing this system
+#    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ipaddr/32 -p tcp -j DROP" addrules
+#    ./addrules
+#    iptables -L -n |grep $ip 
     echo
+#    num=`iptables -L -n |wc -l`
+#    echo There are $num lines in iptables
     var=`cat addrules|wc -l`
     var1=7
     echo There are $((var-var1)) active rules in the firewall
@@ -43,5 +43,6 @@ else
     awk 'NR >= '$count' && NR <= '$((last - 1))'' addrules
     # code if not found
 fi
-
+echo
+echo done
 
