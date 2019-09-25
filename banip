@@ -2,7 +2,7 @@
 read -p 'IP to look for: ' ip
 if [[ $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
 then
-  echo This is a valid ip, $ip
+  echo This is a valid ip, $ip address format
 else 
   echo This is not an IP address
   exit 1
@@ -29,12 +29,12 @@ if grep -Fq $ip  addrules
 	    awk 'NR >= '$count' && NR <= '$last'' addrules
 	    # code if found
 	else
-	    echo This is a valid IP address $ip,
 	    echo But it does not exist in the firewall yet, it needs to be added to addrules
 	    echo Adding this ip to addrules and processing updates
 	    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ip/32 -p tcp -j DROP" addrules
 	    ./addrules
 	    rule=`iptables -L -n |grep $ip`
+	    echo
 	    echo The new rule is now active as $rule
 #	    head -15 addrules
 #	num=`iptables -L -n |wc -l`
