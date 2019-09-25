@@ -23,10 +23,9 @@ if grep -Fq $ip  addrules
 	    count=`cat count`
 #	    echo $count
 	    last=`cat last`
-#	    echo $((last -1))
-	    echo There are $((last - $count)) new rules added since the last sort!
+	    echo There are $((last - $count)) new rules added since the last sort
 	    echo These are all the new rules added since last sort
-	    awk 'NR >= '$count' && NR <= '$last'' addrules
+	    awk 'NR >= '$count' && NR <= '$((last - 1))'' addrules
 	    # code if found
 	else
 	    echo But it does not exist in the firewall yet, it needs to be added to addrules
@@ -41,7 +40,7 @@ if grep -Fq $ip  addrules
 #       echo There are $num of rules in iptables
 	    var=`cat addrules|wc -l`
             var1=7
-            echo There are $((var-var1)) active rules in the firewall
+#            echo There are $((var-var1)) active rules in the firewall
 	    count=`cat count`
 	    echo $count
 	    last=`cat last`
