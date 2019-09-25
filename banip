@@ -2,7 +2,7 @@
 read -p 'IP to look for: ' ip
 if [[ $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
 then
-  echo This is a valid ip, $ip address format
+  echo This is a valid ip address format: $ip 
 else 
   echo This is not an IP address
   exit 1
@@ -12,7 +12,7 @@ if grep -Fq $ip  addrules
 	    echo IP already exist in addrules
 #	    iptables -L -n |grep $ip
 	    rules=`iptables-save |grep $ip`
-	    echo The current matching rules is this: $rules
+	    echo The current matching rule is this: $rules
 	    echo
 #	    head -15 addrules
 #	    num=`iptables -L -n |wc -l`
