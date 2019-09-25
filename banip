@@ -19,7 +19,7 @@ if grep -Fq $ip  addrules
 #	    echo There are $num of rules in iptables
 	    var=`cat addrules|wc -l`
     	    var1=7
-#	    echo There are $((var-var1)) active rules in the firewall
+	    echo There are $((var-var1)) active rules in the firewall
 	    count=`cat count`
 #	    echo $count
 	    last=`cat last`
