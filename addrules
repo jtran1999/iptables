@@ -2,6 +2,13 @@
 iptables -F
 iptables -X
 iptables -A INPUT -j LOG --log-prefix inputdrop -m limit --limit 30/m --log-level 6
+iptables -A INPUT -s 194.226.171.105/32 -p tcp -j DROP
+iptables -A INPUT -s 35.190.215.64/32 -p tcp -j DROP
+iptables -A INPUT -s 164.132.225.151/32 -p tcp -j DROP
+iptables -A INPUT -s 183.209.104.99/32 -p tcp -j DROP
+iptables -A INPUT -s 185.143.221.41/32 -p tcp -j DROP
+iptables -A INPUT -s 118.187.7.103/32 -p tcp -j DROP
+iptables -A INPUT -s 218.92.0.157/32 -p tcp -j DROP
 iptables -A INPUT -s 101.187.63.113/32 -p tcp -j DROP
 iptables -A INPUT -s 101.251.68.232/32 -p tcp -j DROP
 iptables -A INPUT -s 101.254.185.118/32 -p tcp -j DROP

@@ -39,7 +39,7 @@ else
 #    echo $count
     last=`cat last`
 #    echo $last
-    echo There have been $((last - $count)) rule addidions since the last update:
+    echo There have been $((last - 1) - $(count)) rule addidions since the last update:
     echo Here are the last $((last - $count)) rules
     awk 'NR >= '$count' && NR <= '$((last - 1))'' addrules
     # code if not found
