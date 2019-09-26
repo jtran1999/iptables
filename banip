@@ -29,7 +29,9 @@ if grep -Fq $ip  addrules
 	    # code if found
 	else
 	    echo But it does not exist in the firewall yet, it needs to be added to addrules
-	    echo Adding this ip to addrules and processing updates
+	    echo **********************************************************************
+	    echo This ip address $ip has now been banned from accessing this system...*
+	    echo **********************************************************************
 	    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ip/32 -p tcp -j DROP" addrules
 	    ./addrules
 	    rule=`iptables -L -n |grep $ip`
@@ -38,20 +40,20 @@ if grep -Fq $ip  addrules
 #	    head -15 addrules
 #	num=`iptables -L -n |wc -l`
 #       echo There are $num of rules in iptables
-	    var=`cat addrules|wc -l`
-            var1=7
+#	    var=`cat addrules|wc -l`
+#            var1=7
 #            echo There are $((var-var1)) active rules in the firewall
-	    count=`cat count`
-	    echo $count
+	    count=4
+#	    echo $count
 	    last=`cat last`
 	    echo There are $((last - $count)) rule addidions since the last update:
 	    echo $((last + 1)) >last
-	    last = `cat last`
-	    echo $last
+	    last =`cat last`
+#	    echo $last
 	    echo There are $((last - $count)) rule addidions since the last update:
 	    echo Here are the last $((last - $count)) rules
 	    awk 'NR >= '$count' && NR <= '$last'' addrules
-	    echo Updated last count to $last
+#	    echo Updated last count to $last
 	    # code if not found
 fi
 echo done
