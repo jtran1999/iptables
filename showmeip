@@ -30,9 +30,9 @@ then
 else
     echo This is a valid IP address, but it does not exist as an active firewall rule yet
     echo This IP address should be added to addrules
-    echo ********************************************************
-    echo * Use banip to block the ip from accessing this system *
-    echo ********************************************************
+    echo "********************************************************"
+    echo "* Use banip to block the ip from accessing this system *"
+    echo "********************************************************"
     var=`cat addrules|wc -l`
     var1=7
     echo There are $((var-var1)) active rules in the firewall
