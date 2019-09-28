@@ -20,4 +20,6 @@ sleep 1
 ./addrules
 echo
 echo There are currently $num lines in iptables
+echo This should be the first rule in the a sorted addrules table
+awk 'NR >= '5' && NR <= '5'' addrules
 echo done

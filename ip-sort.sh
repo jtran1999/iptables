@@ -21,5 +21,5 @@ count=`cat count`
 echo This is the new value for var count: $count
 echo This is the output with last var resetted to $last
 echo "Test the awk command with awk 'NR >= '$count' && NR <= '$last'' addrules"
-awk 'NR >= '$count' && NR <= '$last'' addrules
+awk 'NR >= '$count' && NR <= '$last'' sorted
 echo done
