@@ -53,9 +53,9 @@ if grep -Fq $ip  addrules
 	    lines=`cat addrules |wc -l`
 	    num=$((lines - 7))
 	    echo There are $num of rules in iptables
-	    echo There are $((last - $count)) rule addidions since the last update:
-	    echo Here are the last $((last - $count)) rules
-	    awk 'NR >= '$count' && NR <= '$last'' addrules
+	    echo There are $((last - 4)) rule addidions since the last update:
+	    echo Here are the last $((last - 4)) rules
+	    awk 'NR >= '$((count + 1))' && NR <= '$last'' addrules
 #	    echo Updated last count to $last
 	    # code if not found
 fi
