@@ -29,9 +29,9 @@ if grep -Fq $ip  addrules
 	    # code if found
 	else
 	    echo But it does not exist in the firewall yet, it needs to be added to addrules
-	    echo "***********************************************************************************"
-	    echo "* This ip address $ip has now been banned from accessing this system... *"
-	    echo "***********************************************************************************"
+	    echo "**********************************************************************************"
+	    echo " This ip address $ip has now been banned from accessing this system...  "
+	    echo "**********************************************************************************"
 	    sed -i "/^iptables -A INPUT -j LOG/a iptables -A INPUT -s $ip/32 -p tcp -j DROP" addrules
 	    ./addrules
 	    rule=`iptables -L -n |grep $ip`
